@@ -10,6 +10,10 @@ class CanvasModel {
     var lastY: Int;
     var isDragging: Bool;
 
+    public static function sayHi() {
+    	trace("say hi!");
+    }
+
     public function new(actionHandler: CanvasModelActionHandling) {
         this.delegate = actionHandler;
     }

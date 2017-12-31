@@ -1,2 +1,7 @@
 draw.CanvasModel
 -cpp build/cpp
+-D iphonesim
+-D HXCPP_M64
+-D static_link
+-D HXCPP_CPP11
+-D debug
