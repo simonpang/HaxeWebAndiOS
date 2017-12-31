@@ -7,30 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F499BFAF1FF9169C008893D4 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = F499BFAE1FF9169C008893D4 /* AppDelegate.mm */; };
+		F499BFAF1FF9169C008893D4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F499BFAE1FF9169C008893D4 /* AppDelegate.m */; };
 		F499BFB21FF9169C008893D4 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = F499BFB11FF9169C008893D4 /* ViewController.mm */; };
 		F499BFB51FF9169C008893D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F499BFB31FF9169C008893D4 /* Main.storyboard */; };
 		F499BFB71FF9169C008893D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F499BFB61FF9169C008893D4 /* Assets.xcassets */; };
 		F499BFBA1FF9169C008893D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F499BFB81FF9169C008893D4 /* LaunchScreen.storyboard */; };
-		F499BFBD1FF9169C008893D4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F499BFBC1FF9169C008893D4 /* main.m */; };
+		F499BFBD1FF9169C008893D4 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = F499BFBC1FF9169C008893D4 /* main.mm */; };
 		F499BFCD1FF91930008893D4 /* include in Resources */ = {isa = PBXBuildFile; fileRef = F499BFCC1FF91930008893D4 /* include */; };
 		F499BFCF1FF91CD6008893D4 /* liboutput.iphonesim-64.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F499BFCE1FF91CD6008893D4 /* liboutput.iphonesim-64.a */; };
+		F499BFD41FF93A6E008893D4 /* src in Resources */ = {isa = PBXBuildFile; fileRef = F499BFD21FF93A5C008893D4 /* src */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F499BFAA1FF9169C008893D4 /* Draw.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Draw.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F499BFAD1FF9169C008893D4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		F499BFAE1FF9169C008893D4 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
+		F499BFAE1FF9169C008893D4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		F499BFB01FF9169C008893D4 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		F499BFB11FF9169C008893D4 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		F499BFB41FF9169C008893D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F499BFB61FF9169C008893D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F499BFB91FF9169C008893D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F499BFBB1FF9169C008893D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F499BFBC1FF9169C008893D4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F499BFBC1FF9169C008893D4 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		F499BFCA1FF9179C008893D4 /* liboutput.iphonesim.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liboutput.iphonesim.a; path = ../build/cpp/liboutput.iphonesim.a; sourceTree = "<group>"; };
 		F499BFCC1FF91930008893D4 /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; name = include; path = ../build/cpp/include; sourceTree = "<group>"; };
 		F499BFCE1FF91CD6008893D4 /* liboutput.iphonesim-64.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "liboutput.iphonesim-64.a"; path = "../build/cpp/liboutput.iphonesim-64.a"; sourceTree = "<group>"; };
+		F499BFD21FF93A5C008893D4 /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; name = src; path = ../build/cpp/src; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +50,7 @@
 		F499BFA11FF9169C008893D4 = {
 			isa = PBXGroup;
 			children = (
+				F499BFD21FF93A5C008893D4 /* src */,
 				F499BFCC1FF91930008893D4 /* include */,
 				F499BFAC1FF9169C008893D4 /* Draw */,
 				F499BFAB1FF9169C008893D4 /* Products */,
@@ -67,14 +70,14 @@
 			isa = PBXGroup;
 			children = (
 				F499BFAD1FF9169C008893D4 /* AppDelegate.h */,
-				F499BFAE1FF9169C008893D4 /* AppDelegate.mm */,
+				F499BFAE1FF9169C008893D4 /* AppDelegate.m */,
 				F499BFB01FF9169C008893D4 /* ViewController.h */,
 				F499BFB11FF9169C008893D4 /* ViewController.mm */,
 				F499BFB31FF9169C008893D4 /* Main.storyboard */,
 				F499BFB61FF9169C008893D4 /* Assets.xcassets */,
 				F499BFB81FF9169C008893D4 /* LaunchScreen.storyboard */,
 				F499BFBB1FF9169C008893D4 /* Info.plist */,
-				F499BFBC1FF9169C008893D4 /* main.m */,
+				F499BFBC1FF9169C008893D4 /* main.mm */,
 			);
 			path = Draw;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 				F499BFB71FF9169C008893D4 /* Assets.xcassets in Resources */,
 				F499BFB51FF9169C008893D4 /* Main.storyboard in Resources */,
 				F499BFCD1FF91930008893D4 /* include in Resources */,
+				F499BFD41FF93A6E008893D4 /* src in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,8 +164,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F499BFB21FF9169C008893D4 /* ViewController.mm in Sources */,
-				F499BFBD1FF9169C008893D4 /* main.m in Sources */,
-				F499BFAF1FF9169C008893D4 /* AppDelegate.mm in Sources */,
+				F499BFBD1FF9169C008893D4 /* main.mm in Sources */,
+				F499BFAF1FF9169C008893D4 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

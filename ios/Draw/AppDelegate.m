@@ -6,20 +6,12 @@
 //
 
 #import "AppDelegate.h"
-#import <hxcpp.h>
 
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
-
-+ (void)initialize
-{
-    if (self == [AppDelegate class]) {
-        HX_TOP_OF_STACK hx::Boot(); __boot_all();
-    }
-}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
