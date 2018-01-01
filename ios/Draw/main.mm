@@ -7,14 +7,23 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
-#include "hxcpp.h"
-#include "hx/Native.h"
+
+extern "C" const char *hxRunLibrary();
+extern "C" void hxcpp_set_top_of_stack();
 
 int main(int argc, char * argv[]) {
 
+    hxcpp_set_top_of_stack();
+
+    const char *err = hxRunLibrary();
+    if (err) {
+        // Unhandled exceptions ...
+        fprintf(stderr,"Error %s\n", err );
+        return -1;
+    }
+
+
     @autoreleasepool {
-        HX_TOP_OF_STACK hx::Boot(); __boot_all();
-        const char * msg = hx::Init();
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
 }

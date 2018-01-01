@@ -14,8 +14,9 @@ class CanvasModel {
     	trace("say hi!");
     }
 
-    public function new(actionHandler: CanvasModelActionHandling) {
-        this.delegate = actionHandler;
+    //public function new(actionHandler: CanvasModelActionHandling) {
+        //this.delegate = actionHandler;
+    public function new() {
     }
 
     public function onEvent(e: CanvasModelEvent) {

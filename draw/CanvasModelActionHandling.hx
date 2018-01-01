@@ -1,7 +1,6 @@
 package draw;
 
 // Interface for abstract canvas view model action handler.
-interface CanvasModelActionHandling {
+extern interface CanvasModelActionHandling {
     function handleAction(action: CanvasModelAction): Void;
 }
-

@@ -1,4 +1,5 @@
 draw.CanvasModel
+#draw.CanvasModelActionHandler
 -cpp build/cpp
 -D iphonesim
 -D HXCPP_M64
