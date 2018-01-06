@@ -12,7 +12,7 @@ namespace draw {
 
 		virtual void redraw() {};
 
-		virtual void drawLine(int x1, int y1, int x2, int y2) {};
+        virtual void drawLine(int x1, int y1, int x2, int y2) {  printf("XDDDDDD\n"); };
 	};
 }
 

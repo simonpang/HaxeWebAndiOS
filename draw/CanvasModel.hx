@@ -3,22 +3,23 @@ package draw;
 // Canvas view model
 class CanvasModel {
 
-    public var actionHandler: CanvasModelAction -> Void;
-
 #if cpp
-    public function setDelegate(handler: cpp.Pointer<draw.CanvasModelActionHandler>) {
-        this.actionHandler = function(action) handler.value.handleAction(action);
+    var delegate: cpp.Pointer<draw.CanvasModelActionHandler>;
+
+    public function actionHandler(action: CanvasModelAction) {
+        trace("a1");
+        delegate.value.handleAction(action);
+        trace("a2");
     }
+
+#else
+    public var actionHandler: CanvasModelAction -> Void;
 #end
 
     // Internal tool states
     var lastX: Int;
     var lastY: Int;
     var isDragging: Bool;
-
-    public static function sayHi() {
-    	trace("say hi!");
-    }
 
     public function new() {
     }

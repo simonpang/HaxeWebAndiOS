@@ -11,8 +11,6 @@
 #define _hx_tag ""
 #include "draw/CanvasModel.h"
 #include "draw/CanvasModelEvent.h"
-//#include "draw/CanvasModelAction.h"
-#include "../../draw/CanvasModelActionHandler.h"
 
 class CanvasActionHandlerImpl: draw::CanvasModelActionHandler {
 
@@ -20,9 +18,9 @@ public:
     // Constructor
     CanvasActionHandlerImpl(ViewController *parent) : parent(parent) {};
 
-    void clearAll();
-    void redraw();
-    void drawLine(int x1, int y1, int x2, int y2);
+    virtual void clearAll();
+    virtual void redraw();
+    virtual void drawLine(int x1, int y1, int x2, int y2);
 
 private:
     ViewController *parent;
@@ -33,6 +31,8 @@ private:
     draw::CanvasModel obj;
     CanvasActionHandlerImpl *actionHandlerImpl;
 }
+
+@property UIBezierPath *previewPath;
 
 @end
 
@@ -45,7 +45,14 @@ private:
     hx::GCAddRoot((hx::Object **) &obj.mPtr);
 
     actionHandlerImpl = new CanvasActionHandlerImpl(self);
-    obj->setDelegate(actionHandlerImpl);
+    obj->delegate = actionHandlerImpl;
+
+    self.previewPath = [UIBezierPath new];
+    CAShapeLayer *shape = [CAShapeLayer layer];
+    shape.path = self.previewPath.CGPath;
+    [self.view.layer addSublayer:shape];
+
+    actionHandlerImpl->drawLine(0, 0, 0, 0);
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -77,7 +84,8 @@ private:
 #pragma mark - CanvasActionHandler Implementation
 
 void CanvasActionHandlerImpl::drawLine(int x1, int y1, int x2, int y2) {
-
+    [parent.previewPath moveToPoint:CGPointMake(x1, y1)];
+    [parent.previewPath addLineToPoint:CGPointMake(x2, y2)];
 }
 
 void CanvasActionHandlerImpl::redraw() {
