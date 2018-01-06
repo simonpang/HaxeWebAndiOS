@@ -3,7 +3,7 @@ package draw;
 import js.Browser;
 
 // Main view controller
-class MainViewController implements CanvasModelActionHandling {
+class MainViewController {
 
 	public var element: js.html.DOMElement;
     var canvas: js.html.CanvasElement;
@@ -11,7 +11,8 @@ class MainViewController implements CanvasModelActionHandling {
     var viewModel: CanvasModel;
 
 	public function new() {
-        viewModel = new CanvasModel(this);
+        viewModel = new CanvasModel();
+        viewModel.actionHandler = function (action) performAction(action);
         loadView();
     }
 
@@ -48,7 +49,7 @@ class MainViewController implements CanvasModelActionHandling {
 
     // Action handling
 
-    public function handleAction(action: CanvasModelAction) {
+    public function performAction(action: CanvasModelAction) {
         switch action {
             case ClearAll:
                 clear();

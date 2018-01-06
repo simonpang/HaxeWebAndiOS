@@ -3,7 +3,13 @@ package draw;
 // Canvas view model
 class CanvasModel {
 
-    public var delegate: CanvasModelActionHandling;
+    public var actionHandler: CanvasModelAction -> Void;
+
+#if cpp
+    public function setDelegate(handler: cpp.Pointer<draw.CanvasModelActionHandler>) {
+        this.actionHandler = function(action) handler.value.handleAction(action);
+    }
+#end
 
     // Internal tool states
     var lastX: Int;
@@ -14,8 +20,6 @@ class CanvasModel {
     	trace("say hi!");
     }
 
-    //public function new(actionHandler: CanvasModelActionHandling) {
-        //this.delegate = actionHandler;
     public function new() {
     }
 
@@ -31,7 +35,7 @@ class CanvasModel {
     	case MouseMove(x, y):
     		if (isDragging) {
     			var line = new LineItem(lastX, lastY, x, y);
-    			delegate.handleAction(CanvasModelAction.DrawLine(line));
+    			actionHandler(CanvasModelAction.DrawLine(line));
         		lastX = x;
         		lastY = y;
     		}
@@ -40,7 +44,7 @@ class CanvasModel {
     		isDragging = false;
 
     	case ClearButtonPushed:
-    		delegate.handleAction(CanvasModelAction.ClearAll);
+    		actionHandler(CanvasModelAction.ClearAll);
     	}
     }
 }

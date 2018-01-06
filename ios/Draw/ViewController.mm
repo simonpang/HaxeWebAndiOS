@@ -11,34 +11,41 @@
 #define _hx_tag ""
 #include "draw/CanvasModel.h"
 #include "draw/CanvasModelEvent.h"
-#include "draw/CanvasModelAction.h"
-#include "draw/CanvasModelActionHandler.h"
+//#include "draw/CanvasModelAction.h"
+#include "../../draw/CanvasModelActionHandler.h"
+
+class CanvasActionHandlerImpl: draw::CanvasModelActionHandler {
+
+public:
+    // Constructor
+    CanvasActionHandlerImpl(ViewController *parent) : parent(parent) {};
+
+    void clearAll();
+    void redraw();
+    void drawLine(int x1, int y1, int x2, int y2);
+
+private:
+    ViewController *parent;
+};
 
 
 @interface ViewController () {
     draw::CanvasModel obj;
+    CanvasActionHandlerImpl *actionHandlerImpl;
 }
 
 @end
-
-void hello(draw::CanvasModelAction action) {
-
-}
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    // References:
-    // https://groups.google.com/forum/#!topic/haxelang/dlKAkSuZXSo
-    // https://github.com/HaxeFoundation/hxcpp/blob/master/src/hx/cppia/CppiaModule.cpp
-
     obj = draw::CanvasModel_obj::__new();
     hx::GCAddRoot((hx::Object **) &obj.mPtr);
 
-    auto f = cpp::Function<::draw::CanvasModelAction>(&hello);
-    auto handler = draw::CanvasModelActionHandler_obj::__new(f);
+    actionHandlerImpl = new CanvasActionHandlerImpl(self);
+    obj->setDelegate(actionHandlerImpl);
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -61,7 +68,22 @@ void hello(draw::CanvasModelAction action) {
 
 - (void)dealloc
 {
+    delete actionHandlerImpl;
     hx::GCRemoveRoot((hx::Object **) &obj.mPtr);
 }
 
 @end
+
+#pragma mark - CanvasActionHandler Implementation
+
+void CanvasActionHandlerImpl::drawLine(int x1, int y1, int x2, int y2) {
+
+}
+
+void CanvasActionHandlerImpl::redraw() {
+
+}
+
+void CanvasActionHandlerImpl::clearAll() {
+
+}

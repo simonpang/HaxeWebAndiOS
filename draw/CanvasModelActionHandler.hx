@@ -1,15 +1,28 @@
 package draw;
 
 // CanvasModelActionHandler is a wrapper for cpp to implement CanvasModelActionHandling.
-class CanvasModelActionHandler implements CanvasModelActionHandling {
 
-	public var handler: cpp.Callable<CanvasModelAction -> Void>;
+@:include('./CanvasModelActionHandler.h')
+@:native('draw::CanvasModelActionHandler')
+extern class CanvasModelActionHandler {
 
-	public function handleAction(action: CanvasModelAction) {
-		handler(action);
-	}
+	@:native 
+	function clearAll(): Void;
 
-	public function new(handler: cpp.Callable<CanvasModelAction -> Void>) {
-		this.handler = handler;
+    @:native 
+    function redraw(): Void;
+
+    @:native
+    function drawLine(x1: Int, y1: Int, x2: Int, y2: Int): Void;
+
+	inline function handleAction(action: CanvasModelAction): Void {
+        switch action {
+        case ClearAll:
+            clearAll();
+        case Redraw:
+            redraw();
+        case DrawLine(line):
+            drawLine(line.x1, line.y1, line.x2, line.y2);
+        }
 	}
 }
